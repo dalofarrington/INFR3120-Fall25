@@ -1,0 +1,78 @@
+/*body styling*/
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(90deg, #010626, #2481A6);
+    /*Gradient*/
+    color: #fff;
+    /*White text*/
+    margin: 0;
+}
+
+/*header styling*/
+header {
+    font-family: 'Times New Roman', Times, serif;
+    background: #031220;
+    color: #F2AC29;
+    text-align: center;
+    /*center aligns text*/
+    padding: 15px;
+    /*spacing inside header*/
+}
+
+/*footer styling*/
+footer {
+    font-family: 'Times New Roman', Times, serif;
+    background: #031220;
+    color: #F2AC29;
+    text-align: center;
+    position: fixed;
+    /*Keeps footer visible at bottom of page*/
+    /*used code from w3schools to make footer stay at the bottom (remember to reference in readme*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+/*navigation bar styling*/
+nav {
+    text-align: center;
+}
+
+/*navigation links styling*/
+nav a {
+    font-family: 'Times New Roman', Times, serif;
+    color: #F2AC29;
+    font-size: 18px;
+}
+
+
+/*article styling*/
+article {
+    font-family: 'Times New Roman', Times, serif;
+    color: #F2AC29;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    /*spacing for top and bottom*/
+    font-size: 20px;
+}
+
+/*circular image*/
+.image2 {
+    border-radius: 50%;
+    /*makes image circular*/
+    max-width: 100px;
+    height: auto;
+}
+
+/*video styling*/
+video {
+    width: auto;
+    height: 300px
+}
+
+/*color scheme:
+header, footer & navigation text color: #F2AC29
+header and footer background: #031220
+body text color: #fff
+body background (linear gradient): #010626, #2481A6 */

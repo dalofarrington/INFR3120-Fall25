@@ -1,0 +1,36 @@
+<%-include ../partials/header.ejs %>
+<%-include ../partials/main_nav.ejs %>
+<!-- Main database content display-->
+ <main class="container">
+    <div class ="row">
+        <div class = "offset-md-1 col-md-12">
+            <h1><%= title %></h1>
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <!--Header Row-->
+                <tr class="d-flex">
+                    <th class="text-center col-2">Title</th>
+                    <th class="text-center col-3">Description</th>
+                    <th class="text-center col-1">Day</th>
+                    <th class="text-center col-1">Month</th>
+                    <th class="text-center col-1">Year</th>
+                    <th class="text-center col-2">Priority</th>
+                    <th class="text-center col-2">Status</th>
+                </tr>
+                <% for(let count=0; count<TaskList.length;count++) { %>
+                    <tr class ="d-flex">
+                        <td class="text-center col-2"><%= TaskList[count].Title%></td>
+                        <td class="text-center col-3"><%= TaskList[count].Description%></td>
+                        <td class="text-center col-1"><%= TaskList[count].Day%></td>
+                        <td class="text-center col-1"><%= TaskList[count].Month%></td>
+                        <td class="text-center col-1"><%= TaskList[count].Year%></td>
+                        <td class="text-center col-2"><%= TaskList[count].Priority%></td>
+                        <td class="text-center col-2"><%= TaskList[count].Status%></td>
+                    </tr>
+                    <% } %>
+
+            </table>
+        </div>
+    </div>
+ </main>
+<%-include ../partials/footer.ejs %>
