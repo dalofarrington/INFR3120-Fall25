@@ -124,33 +124,3 @@ tr:hover {
   background: #f1faff !important;
 }
 
-/* =====================================
-   CRUD Button Styles (Optional)
-===================================== */
-.btn-small {
-  padding: 6px 14px !important;
-  border-radius: 6px !important;
-  text-decoration: none !important;
-  font-size: 14px !important;
-  margin-right: 6px !important;
-  display: inline-block !important;
-  transition: 0.3s !important;
-}
-
-.btn-update {
-  background: #ffc107 !important;
-  color: black !important;
-}
-
-.btn-update:hover {
-  background: #e0a800 !important;
-}
-
-.btn-delete {
-  background: #dc3545 !important;
-  color: white !important;
-}
-
-.btn-delete:hover {
-  background: #b52a37 !important;
-}
