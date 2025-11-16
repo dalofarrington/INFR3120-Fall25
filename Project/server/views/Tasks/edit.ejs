@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+  <h2>Edit Task</h2>
+
+  <form action="/tasks/edit/<%= task._id %>" method="POST" class="mt-3">
+    <div>
+      <label>Title:</label>
+      <input type="text" name="title" value="<%= task.Title %>" required>
+    </div>
+
+    <div>
+      <label>Description:</label>
+      <input type="text" name="description" value="<%= task.Description %>">
+    </div>
+
+    <div>
+      <label>Day:</label>
+      <input type="number" name="day" value="<%= task.Day %>">
+    </div>
+
+    <div>
+      <label>Month:</label>
+      <input type="text" name="month" value="<%= task.Month %>">
+    </div>
+
+    <div>
+      <label>Year:</label>
+      <input type="number" name="year" value="<%= task.Year %>">
+    </div>
+
+    <div>
+      <label>Priority:</label>
+      <input type="text" name="priority" value="<%= task.Priority %>">
+    </div>
+
+    <div>
+      <label>Status:</label>
+      <input type="text" name="status" value="<%= task.Status %>">
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>
