@@ -72,7 +72,8 @@ router.post('/add',async(req,res,next)=>{
 // Update - Get Route
 router.get('/edit/:id', async (req, res, next) => {
   try {
-    const taskToEdit = await Tasks.findById(req.params.id);
+    const id = req.params.id;
+    const taskToEdit = await Tasks.findById(id);
     res.render('Tasks/edit', {
       title: 'Edit Task',
       task: taskToEdit
@@ -86,17 +87,20 @@ router.get('/edit/:id', async (req, res, next) => {
 // Update - Post Route
 router.post('/edit/:id', async (req, res, next) => {
   try {
-    const updatedTask = {
-      Title: req.body.title,
-      Description: req.body.description,
-      Day: req.body.day,
-      Month: req.body.month,
-      Year: req.body.year,
-      Priority: req.body.priority,
-      Status: req.body.status
-    };
-    await Tasks.findByIdAndUpdate(req.params.id, updatedTask);
-    res.redirect('/tasks');
+    let id = req.params.id;
+    let updatedTask = Tasks({
+      "_id": id,
+      "Title": req.body.title,
+      "Description": req.body.description,
+      "Day": req.body.day,
+      "Month": req.body.month,
+      "Year": req.body.year,
+      "Priority": req.body.priority,
+      "Status": req.body.status
+    });
+    Tasks.findByIdAndUpdate(id, updatedTask).then(() => {;
+    res.redirect('/tasks')
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send('Error updating task');

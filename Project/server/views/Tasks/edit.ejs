@@ -1,4 +1,5 @@
-<%- include('../partials/header') %>
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
 
 <div class="container mt-4">
   <h2>Edit Task</h2>
@@ -39,8 +40,13 @@
       <input type="text" name="status" value="<%= task.Status %>">
     </div>
 
-    <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+    <button type="submit" class="btn btn-success">Save Changes</button>
+ <a href="/tasks" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel </a>
   </form>
 </div>
 
-<%- include('../partials/footer') %>
+    
+    
+
+<%-include ../partials/footer.ejs %>

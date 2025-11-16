@@ -4,19 +4,22 @@
 <!-- Main database content display -->
 <main class="container">
   <div class="row">
-    <div class="offset-md-1 col-md-12">
+    <div class="offset-md-1 col-md-14">
       <h1><%= title %></h1>
+      <a href="/tasks/add" class="btn btn-primary btn-lg mt-3">
+    <i class="fas fa-plus"></i> Add New Task
+    </a>
       <br>
 
       <table class="table table-bordered table-striped table-hover">
         <!-- Header Row -->
         <tr class="d-flex">
-          <th class="text-center col-2">Title</th>
+          <th class="text-center col-1">Title</th>
           <th class="text-center col-3">Description</th>
           <th class="text-center col-1">Day</th>
           <th class="text-center col-1">Month</th>
           <th class="text-center col-1">Year</th>
-          <th class="text-center col-2">Priority</th>
+          <th class="text-center col-1">Priority</th>
           <th class="text-center col-2">Status</th>
           <!-- New Columns -->
           <th class="text-center col-1">Edit</th>
@@ -25,19 +28,19 @@
 
         <% for (let count = 0; count < TaskLists.length; count++) { %>
         <tr class="d-flex">
-          <td class="text-center col-2"><%= TaskLists[count].Title %></td>
+          <td class="text-center col-1"><%= TaskLists[count].Title %></td>
           <td class="text-center col-3"><%= TaskLists[count].Description %></td>
           <td class="text-center col-1"><%= TaskLists[count].Day %></td>
           <td class="text-center col-1"><%= TaskLists[count].Month %></td>
           <td class="text-center col-1"><%= TaskLists[count].Year %></td>
-          <td class="text-center col-2"><%= TaskLists[count].Priority %></td>
+          <td class="text-center col-1"><%= TaskLists[count].Priority %></td>
           <td class="text-center col-2"><%= TaskLists[count].Status %></td>
-
           <!-- Edit and Delete Buttons -->
           <td class="text-center col-1">
-            <a href="/tasks/edit/<%= TaskLists[count]._id %>" class="btn btn-warning btn-sm">
+            <a href="/tasks/edit/<%= TaskLists[count]._id %>"
+               class="btn btn-primary btn-sm">
               Edit
-            </a>
+            </a></td>
           </td>
           <td class="text-center col-1">
             <a href="/tasks/delete/<%= TaskLists[count]._id %>"
