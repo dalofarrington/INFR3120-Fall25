@@ -1,0 +1,156 @@
+/* =====================================
+   Global Styles
+===================================== */
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+body {
+  background: #f5f7fa !important;
+  color: #222 !important;
+  line-height: 1.6 !important;
+}
+
+/* =====================================
+   Header
+===================================== */
+header {
+  background: #ffffff !important;
+  padding: 20px 40px !important;
+  border-bottom: 2px solid #e2e2e2 !important;
+}
+
+.header-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+.logo {
+  width: 55px !important;
+  height: auto !important;
+}
+
+.site-name {
+  font-size: 32px !important;
+  font-weight: 700px !important;
+  color: #0077ff !important;
+}
+
+.tagline {
+  margin-top: 4px !important;
+  font-size: 15px  !important;
+  color: #666  !important;
+}
+
+/* =====================================
+   Hero Section
+===================================== */
+.hero {
+  text-align: center !important;
+  padding: 70px 20px !important;
+  background: linear-gradient(135deg, #0077ff, #00baff) !important;
+  color: white !important;
+}
+
+.hero h2 {
+  font-size: 40px !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px !important;
+}
+
+.hero p {
+  max-width: 600px  !important;
+  margin: 0 auto 20px !important;
+  font-size: 18px !important;
+}
+
+#createTaskBtn {
+  background: white !important;
+  color: #0077ff !important;
+  padding: 12px 25px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  transition: 0.3s !important;
+  font-weight: 500 !important;
+}
+
+#createTaskBtn:hover {
+  background: #e8e8e8 !important;
+}
+
+/* =====================================
+   Task List Section
+===================================== */
+.task-list {
+  width: 90% !important;
+  margin: 40px auto !important;
+}
+
+.task-list h3 {
+  font-size: 26px !important;
+  margin-bottom: 15px !important;
+  color: #0077ff !important;
+  text-align: center !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse !important;
+  background: white !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+th, td {
+  padding: 14px !important;
+  text-align: left !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+th {
+  background: #0077ff !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+tr:hover {
+  background: #f1faff !important;
+}
+
+/* =====================================
+   CRUD Button Styles (Optional)
+===================================== */
+.btn-small {
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  margin-right: 6px !important;
+  display: inline-block !important;
+  transition: 0.3s !important;
+}
+
+.btn-update {
+  background: #ffc107 !important;
+  color: black !important;
+}
+
+.btn-update:hover {
+  background: #e0a800 !important;
+}
+
+.btn-delete {
+  background: #dc3545 !important;
+  color: white !important;
+}
+
+.btn-delete:hover {
+  background: #b52a37 !important;
+}
