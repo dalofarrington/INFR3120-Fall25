@@ -8,17 +8,19 @@ let User = userModel.User;
 
 /* GET home page. (Ensures that site opens on home)*/
 router.get('/', function (req, res, next) {
-  res.render('home', { title: 'Home' });
+  res.render('home', { title: 'Home',
+    displayName: req.user?req.user.displayName:""
+   });
 });
 
 /* GET home page. */
 router.get('/home', function (req, res, next) {
-  res.render('home', { title: 'Home' });
+  res.render('home', { title: 'Home',displayName: req.user?req.user.displayName:"" });
 });
 
 /* GET about page. */
 router.get('/about', function (req, res, next) {
-  res.render('about', { title: 'About' });
+  res.render('about', { title: 'About',displayName: req.user?req.user.displayName:"" });
 });
 
 // Get method for login

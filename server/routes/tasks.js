@@ -2,6 +2,14 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let Tasks = require('../models/tasks');
+function requireAuth(req,res,next)
+{
+  if(!req.isAuthenticated())
+  {
+    return res.redirect('/login')
+  }
+  next();
+}
 
 //CRUD operations
 //Read
@@ -12,7 +20,8 @@ router.get('/',async(req,res,next)=>{
         //console.log(TasksList);
         res.render('Tasks/list',{
             title:'Tasks',
-            TaskLists:TaskList
+            TaskLists:TaskList,
+            displayName: req.user?req.user.displayName:""
         })
     }
     catch(err)
@@ -28,7 +37,8 @@ router.get('/',async(req,res,next)=>{
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('Tasks/add',{
-            title:'Add a Task'
+            title:'Add a Task',
+            displayName: req.user?req.user.displayName:""
         })
     }
     catch(err)
@@ -74,7 +84,8 @@ router.get('/edit/:id', async (req, res, next) => {
     const taskToEdit = await Tasks.findById(id);
     res.render('Tasks/edit', {
       title: 'Edit Task',
-      task: taskToEdit
+      task: taskToEdit,
+      displayName: req.user?req.user.displayName:""
     });
   } catch (err) {
     console.error(err);

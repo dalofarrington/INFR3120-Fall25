@@ -2,11 +2,10 @@
    Global Styles
 ===================================== */
 * {
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 
 body {
   background: #f5f7fa !important;

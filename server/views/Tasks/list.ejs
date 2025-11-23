@@ -6,12 +6,16 @@
   <div class="row">
     <div class="offset-md-1 col-md-14">
       <h1><%= title %></h1>
-      <a href="/tasks/add" class="btn btn-primary btn-lg mt-3">
-    <i class="fas fa-plus"></i> Add New Task
-    </a>
+      <% if(typeof displayName== 'string' && displayName) { %>
+        <a href="/tasks/add" class="btn btn-primary btn-lg mt-3">
+        <i class="fas fa-plus"></i> Add New Task
+
+      </a>
+      <% } %>
       <br>
 
       <table class="table table-bordered table-striped table-hover">
+      <% if(typeof displayName== 'string' && displayName) { %>
         <!-- Header Row -->
         <tr class="d-flex">
           <th class="text-center col-1">Title</th>
@@ -47,6 +51,30 @@
           </td>
         </tr>
         <% } %>
+        <% } else { %>
+          <!-- Header Row -->
+        <tr class="d-flex">
+          <th class="text-center col-1">Title</th>
+          <th class="text-center col-3">Description</th>
+          <th class="text-center col-3">Due Date</th>
+          <th class="text-center col-1">Priority</th>
+          <th class="text-center col-2">Status</th>
+          <!-- New Columns -->
+          <th class="text-center col-1">Edit</th>
+          <th class="text-center col-1">Delete</th>
+        </tr>
+
+      <% for (let count = 0; count < TaskLists.length; count++) { %>
+        <tr class="d-flex">
+          <td class="text-center col-1"><%= TaskLists[count].Title %></td>
+          <td class="text-center col-3"><%= TaskLists[count].Description %></td>
+          <td class="text-center col-3"><%= TaskLists[count].Date ? TaskLists[count].Date.toISOString().slice(0,10) : '' %></td> <!--Ensures correct date is displayed-->
+          <td class="text-center col-1"><%= TaskLists[count].Priority %></td>
+          <td class="text-center col-2"><%= TaskLists[count].Status %></td>
+         
+        </tr>
+      <% } %>
+      <% } %>
       </table>
     </div>
   </div>
