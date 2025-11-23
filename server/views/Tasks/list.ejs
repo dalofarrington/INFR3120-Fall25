@@ -16,9 +16,7 @@
         <tr class="d-flex">
           <th class="text-center col-1">Title</th>
           <th class="text-center col-3">Description</th>
-          <th class="text-center col-1">Day</th>
-          <th class="text-center col-1">Month</th>
-          <th class="text-center col-1">Year</th>
+          <th class="text-center col-3">Due Date</th>
           <th class="text-center col-1">Priority</th>
           <th class="text-center col-2">Status</th>
           <!-- New Columns -->
@@ -30,9 +28,7 @@
         <tr class="d-flex">
           <td class="text-center col-1"><%= TaskLists[count].Title %></td>
           <td class="text-center col-3"><%= TaskLists[count].Description %></td>
-          <td class="text-center col-1"><%= TaskLists[count].Day %></td>
-          <td class="text-center col-1"><%= TaskLists[count].Month %></td>
-          <td class="text-center col-1"><%= TaskLists[count].Year %></td>
+          <td class="text-center col-3"><%= TaskLists[count].Date ? TaskLists[count].Date.toISOString().slice(0,10) : '' %></td> <!--Ensures correct date is displayed-->
           <td class="text-center col-1"><%= TaskLists[count].Priority %></td>
           <td class="text-center col-2"><%= TaskLists[count].Status %></td>
           <!-- Edit and Delete Buttons -->

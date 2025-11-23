@@ -5,9 +5,7 @@ let mongoose = require("mongoose");
 let tasksModel = mongoose.Schema({
     Title: String,
     Description: String,
-    Day: Number,
-    Month: String,
-    Year: Number,
+    Date: Date,
     Priority: String,
     Status: String
     },

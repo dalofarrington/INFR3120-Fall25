@@ -8,8 +8,15 @@ let DB = require('./db');
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 let tasksRouter = require('../routes/tasks')
-
 var app = express();
+let userModel = require('../models/user');
+let User = userModel.User;
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+let cors = require('cors');
 
 mongoose.connect(DB.URI);
 let mongoDB = mongoose.connection;
@@ -17,6 +24,23 @@ mongoDB.on('error',console.error.bind(console,'Connection error'));
 mongoDB.once('open',()=>{
   console.log('Connected to the MongoDB');
 })
+
+// setup express session
+app.use(session({ 
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+// initialize flash
+app.use(flash());
+//user authentication strategy
+passport.use(User.createStrategy());
+//serialize and deserialize the user info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));

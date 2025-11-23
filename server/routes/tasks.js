@@ -48,9 +48,7 @@ router.post('/add',async(req,res,next)=>{
         let newTask = {
             Title: req.body.title,
             Description: req.body.description,
-            Day: req.body.day,
-            Month: req.body.month,
-            Year: req.body.year,
+            Date: req.body.date,
             Priority: req.body.priority,
             Status: req.body.status
         };
@@ -92,9 +90,7 @@ router.post('/edit/:id', async (req, res, next) => {
       "_id": id,
       "Title": req.body.title,
       "Description": req.body.description,
-      "Day": req.body.day,
-      "Month": req.body.month,
-      "Year": req.body.year,
+      "Date": req.body.date,
       "Priority": req.body.priority,
       "Status": req.body.status
     });
