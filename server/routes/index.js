@@ -102,6 +102,8 @@ router.post('/register', function (req, res, next) {
     }
   })
 });
+
+// Get method for logout
 router.get('/logout', function (req, res, next) {
   req.logout(function (err) {
     if (err) {
