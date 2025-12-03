@@ -6,7 +6,9 @@
                         <div class="col-auto card m-4" style="width: 18rem;">
                                 <img class="card-img-top" src="/Asset/images/student.png" alt="Card image cap">
                                 <div class="card-body text-center">
+                                        <% if(typeof displayName=='string' && displayName) { %>
                                         <a href="/tasks/add" class="btn btn-primary">Add a Task</a>
+                                         <% } %>
                                 </div>
                         </div>
 

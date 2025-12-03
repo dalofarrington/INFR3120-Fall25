@@ -1,1 +1,0 @@
-module.exports={"URI":"mongodb+srv://dalofarrington12:WEupg3hfBdUclqR7@cluster0.qnl0cp8.mongodb.net/StudyMate"}
