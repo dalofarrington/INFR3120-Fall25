@@ -112,4 +112,82 @@ router.get('/logout', function (req, res, next) {
   })
   res.redirect("/");
 })
+
+// Get method for Change Password 
+router.get('/change-password', (req, res) => {
+  if (!req.user) return res.redirect('/login');
+  res.render('auth/changePassword', { 
+    title: 'Change Password', 
+    message: null 
+  });
+});
+
+// Post method for Change 
+router.post('/change-password', async (req, res) => {
+  if (!req.user) return res.redirect('/login');
+
+  const { currentPassword, newPassword, confirmPassword } = req.body;
+
+  if (newPassword !== confirmPassword) {
+    return res.render('auth/changePassword', { 
+      title: 'Change Password',
+      message: 'New passwords do not match!' 
+    });
+  }
+
+  try {
+    await req.user.changePassword(currentPassword, newPassword);
+    res.render('auth/changePassword', { 
+      title: 'Change Password',
+      message: 'Password changed successfully!' 
+    });
+  } catch (err) {
+    res.render('auth/changePassword', { 
+      title: 'Change Password',
+      message: 'Current password is incorrect.' 
+    });
+  }
+});
+
+// Get method for Reset Password 
+router.get('/reset-password', (req, res) => {
+  res.render('auth/resetPassword', { 
+    title: 'Reset Password',
+    message: null 
+  });
+});
+
+// Post method for Reset Password 
+router.post('/reset-password', async (req, res) => {
+  const { username, newPassword, confirmPassword } = req.body;
+
+  if (newPassword !== confirmPassword) {
+    return res.render('auth/resetPassword', { 
+      title: 'Reset Password',
+      message: 'Passwords do not match' 
+    });
+  }
+
+  try {
+    let user = await User.findOne({ username });
+    if (!user) return res.render('auth/resetPassword', { 
+      title: 'Reset Password',
+      message: 'User not found' 
+    });
+
+    await user.setPassword(newPassword);
+    await user.save();
+
+    res.render('auth/resetPassword', { 
+      title: 'Reset Password',
+      message: 'Password reset successfully!' 
+    });
+  } catch (err) {
+    res.render('auth/resetPassword', { 
+      title: 'Reset Password',
+      message: 'Error resetting password' 
+    });
+  }
+});
+
 module.exports = router;

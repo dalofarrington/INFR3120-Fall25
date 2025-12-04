@@ -1,32 +1,36 @@
 <%-include ../partials/header.ejs %>
     <%-include ../partials/main_nav.ejs %>
         <main class="container">
-           <% if (typeof message !== 'undefined' && message.length > 0) { %>
-        <div class="alert alert-danger" role="alert">
+            <% if (typeof message !=='undefined' && message.length> 0) { %>
+                <div class="alert alert-danger" role="alert">
                 </div>
                 <% } %>
                     <div class="row">
                         <div class="offset-md-4 col-md-4">
                             <h1>Please login</h1>
+                            <!-- Login Form -->
                             <form method="post" autocomplete="off">
+                                <!-- Username -->
                                 <fieldset class="form-group">
                                     <label for="username"></label>
                                     <input type="text" class="form-control" name="username" placeholder="Enter username"
                                         id="username" required autofocus>
                                 </fieldset>
-                                  <fieldset class="form-group">
+
+                                <!-- Password -->
+                                <fieldset class="form-group">
                                     <label for="password"></label>
-                                    <input type="password" class="form-control" name="password" placeholder="Enter password"
-                                        id="password" required>
-                                        or
-                                        <a href="/register"> Register here </a>
+                                    <input type="password" class="form-control" name="password"
+                                        placeholder="Enter password" id="password" required>
+                                    or <a href="/register"> Register here </a>
                                 </fieldset>
+                                
                                 <fieldset class="form-group text-right">
                                     <input type="submit" class="btn btn-success" value="Login">
                                     <a href="/"></a>
-                                     <input type="button" class="btn btn-warning" value="Cancel">
+                                    <input type="button" class="btn btn-warning" value="Cancel">
                                     <a href="/"></a>
-                                    </fieldset>
+                                </fieldset>
                             </form>
                         </div>
                     </div>

@@ -1,9 +1,41 @@
-<!--Fixed footer from bootstrap-->
+<!-- Fixed footer from bootstrap -->
 <footer>
-      <nav class="navbar fixed-bottom navbar-dark bg-dark ">
-        <h6 class ="navbar-text">&copy; Copyright 2025. All rights reserved.</h6>
-      </nav>
-    </footer>
-    <script src="/Script/app.js"></script>
-  </body>
+  <nav class="navbar fixed-bottom navbar-dark bg-dark">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- Copyright -->
+      <h6 class="navbar-text mb-0">&copy; Copyright 2025. All rights reserved.</h6>
+
+      <!-- Footer Buttons -->
+      <ul class="navbar-nav flex-row">
+
+        <% if (typeof displayName=='string' && displayName) { %>
+
+          <!-- Change Password when logged in -->
+          <li class="nav-item mx-2">
+            <a href="/change-password" class="nav-link">
+              <i class="fa fa-lg fa-key"></i> Change Password
+            </a>
+          </li>
+
+
+          <% } else { %>
+
+            <!-- Reset Password when logged out -->
+            <li class="nav-item mx-2">
+              <a href="/reset-password" class="nav-link">
+                <i class="fa fa-lg fa-unlock-alt"></i> Reset Password
+              </a>
+            </li>
+
+            <% } %>
+      </ul>
+
+    </div>
+  </nav>
+</footer>
+
+<script src="/Script/app.js"></script>
+</body>
+
 </html>
